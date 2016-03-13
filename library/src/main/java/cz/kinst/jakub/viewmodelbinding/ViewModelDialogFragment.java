@@ -64,6 +64,9 @@ public abstract class ViewModelDialogFragment<T extends ViewDataBinding, S exten
 		return getArguments();
 	}
 
+	@Override
+	public void navigate(int way, Bundle params) {
+	}
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {

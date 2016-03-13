@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 
 
 public abstract class ViewModelActivity<T extends ViewDataBinding, S extends ViewModel<T>> extends AppCompatActivity implements ViewInterface {
+
 	private final ViewModelBindingHelper<S, T> mViewModelBindingHelper = new ViewModelBindingHelper<>();
 
 
@@ -49,6 +50,10 @@ public abstract class ViewModelActivity<T extends ViewDataBinding, S extends Vie
 		return getIntent().getExtras();
 	}
 
+	@Override
+	public void navigate(int way, Bundle params) {
+
+	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
