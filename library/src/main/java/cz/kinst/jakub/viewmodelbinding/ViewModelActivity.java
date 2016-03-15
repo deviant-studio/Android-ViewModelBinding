@@ -51,8 +51,7 @@ public abstract class ViewModelActivity<T extends ViewDataBinding, S extends Vie
 	}
 
 	@Override
-	public void navigate(int way, Bundle params) {
-
+	public void navigate(Navigator n) {
 	}
 
 	@Override

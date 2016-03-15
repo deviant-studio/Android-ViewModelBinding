@@ -19,5 +19,5 @@ public interface ViewInterface<T extends ViewDataBinding> {
 	Activity getActivity();
 	Bundle getBundle();
 	ViewModelBindingConfig getViewModelBindingConfig();
-	void navigate(int way, Bundle params);
+	void navigate(Navigator<? extends ViewInterface> n);
 }

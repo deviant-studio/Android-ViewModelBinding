@@ -1,12 +1,11 @@
 package cz.kinst.jakub.sample.viewmodelbinding;
 
 
-import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 
 import cz.kinst.jakub.sample.viewmodelbinding.databinding.ActivityMainBinding;
-import cz.kinst.jakub.viewmodelbinding.ViewModelActivity;
-import cz.kinst.jakub.viewmodelbinding.ViewModelBindingConfig;
+import cz.kinst.jakub.viewmodelbinding.*;
 
 
 /**
@@ -20,17 +19,11 @@ public class MainActivity extends ViewModelActivity<ActivityMainBinding, MainVie
     }
 
     @Override
-    public void navigate(int way, Bundle params) {
-        super.navigate(way, params);
-        if (way == MainViewModel.WAY_DIALOG) {
-            SampleDialogFragment dialog = SampleDialogFragment.newInstance();
-            dialog.setListener(new SampleDialogViewModel.SampleDialogListener() {
-                @Override
-                public void onButtonClicked() {
-                    Toast.makeText(getContext(), "Button in dialog clicked", Toast.LENGTH_SHORT).show();
-                }
-            });
-            dialog.show(getSupportFragmentManager(), "sample");
+    public void navigate(Navigator n) {
+        switch (n.getId()) {    // decide where to go
+            default:
+                DialogFragment dialog = (DialogFragment) Fragment.instantiate(this, n.getCls().getName(), n.getParams());
+                dialog.show(getSupportFragmentManager(), "sample");
         }
     }
 }

@@ -4,6 +4,7 @@ import android.databinding.ObservableField;
 import android.view.View;
 
 import cz.kinst.jakub.sample.viewmodelbinding.databinding.ActivityMainBinding;
+import cz.kinst.jakub.viewmodelbinding.Navigator;
 import cz.kinst.jakub.viewmodelbinding.ViewModel;
 
 
@@ -36,7 +37,7 @@ public class MainViewModel extends ViewModel<ActivityMainBinding> {
 
 
     public void onClickedShowDialogFragmentButton(View v) {
-        getView().navigate(WAY_DIALOG, null);
+        getView().navigate(Navigator.to(SampleDialogFragment.class));
     }
 
 

@@ -65,7 +65,7 @@ public abstract class ViewModelDialogFragment<T extends ViewDataBinding, S exten
 	}
 
 	@Override
-	public void navigate(int way, Bundle params) {
+	public void navigate(Navigator n) {
 	}
 
 	@Override
